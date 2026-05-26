@@ -1,20 +1,6 @@
 <?php
-include "koneksi.php";
+include "header.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Kelas Kopi Online</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-<header>
-    <h1>Kelas Kopi Online</h1>
-    <p>Belajar menyeduh kopi dan membangun bisnis kopi rumahan</p>
-</header>
 
 <section>
     <h2>Tentang Program</h2>
@@ -25,26 +11,26 @@ include "koneksi.php";
     </p>
 </section>
 
-    <section>
-        <h2>Pilihan Kelas</h2>
-        <div class="cards">
-            <?php
-            $sql = "select * from courses";
-            $query = mysqli_query($conn, $sql);
-            while($result = mysqli_fetch_array($query)){
-            ?>
-            <div class="card">
-                <h3><?= $result['name'] ?></h3>
-                <p>
-                    <?= $result['description'] ?>
-                </p>
-                <strong>Rp <?= number_format($result['price'],0,',','.') ?> </strong>
-            </div>
-            <?php
-            }
-            ?>
+<section>
+    <h2>Pilihan Kelas</h2>
+    <div class="cards">
+        <?php
+        $sql = "select * from courses";
+        $query = mysqli_query($conn, $sql);
+        while($result = mysqli_fetch_array($query)){
+        ?>
+        <div class="card">
+            <h3><?= $result['name'] ?></h3>
+            <p>
+                <?= $result['description'] ?>
+            </p>
+            <strong>Rp <?= number_format($result['price'],0,',','.') ?> </strong>
         </div>
-    </section>
+        <?php
+        }
+        ?>
+    </div>
+</section>
 
 <section>
     <h2>Form Pendaftaran</h2>
