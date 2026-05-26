@@ -4,7 +4,7 @@ session_start();
 include "koneksi.php";
 
 $username = $_POST['username'];
-$password = $_POST['password'];
+$password = md5($_POST['password']); //enkripsi pakai md5
 
 $sql = "select * from users where username='$username' and password='$password'";
 $query = mysqli_query($conn,$sql);
