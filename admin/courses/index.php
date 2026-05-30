@@ -5,7 +5,10 @@ include "../../koneksi.php";
 $sql = "select * from courses";
 $query = mysqli_query($conn, $sql);
 ?>
+<a href="../dashboard.php">Kembali ke Dashboard</a> |
+<a href="tambah.php">Tambah Course</a>
 
+<br><br>
 <table border="1">
     <thead>
         <tr>
@@ -23,6 +26,7 @@ $query = mysqli_query($conn, $sql);
             $name = $result['name'];
             $description = $result['description'];
             $price = $result['price'];
+            $id = $result['id'];
         ?>
         <tr>
             <td><?= $no ?></td>
@@ -30,8 +34,8 @@ $query = mysqli_query($conn, $sql);
             <td><?= $description ?></td>
             <td><?= $price ?></td>
             <td>
-                <a href="edit.php?id=<?= $data['id']; ?>">Edit</a> |
-                <a href="hapus.php?id=<?= $data['id']; ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                <a href="edit.php?id=<?= $id; ?>">Edit</a> |
+                <a href="hapus.php?id=<?= $id; ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
             </td>
         </tr>
         <?php
