@@ -29,7 +29,10 @@ $query = mysqli_query($conn, $sql);
             <td><?= $name ?></td>
             <td><?= $description ?></td>
             <td><?= $price ?></td>
-            <td>ubah | hapus</td>
+            <td>
+                <a href="edit.php?id=<?= $data['id']; ?>">Edit</a> |
+                <a href="hapus.php?id=<?= $data['id']; ?>" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+            </td>
         </tr>
         <?php
             $no++;
